@@ -7,7 +7,7 @@ const router = express.Router()
 const signupRouter = require("./routes/signup")
 const loginRouter = require("./routes/login")
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://Sequoia:pln21EpStbWzDdl1@cluster0.n61oq6y.mongodb.net/test")
+mongoose.connect("mongodb+srv://Sequoia:*****@cluster0.n61oq6y.mongodb.net/gamePad")
 
 
 
