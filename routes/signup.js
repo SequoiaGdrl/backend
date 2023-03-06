@@ -111,6 +111,13 @@ router.post("/signup", fileUpload(), async (req, res) => {
 
         await newUser.save();
 
+
+        const response = {
+            data: newUser
+        }
+        res.json(response)
+
+
         res.json(newUser)
 
 
