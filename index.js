@@ -4,10 +4,11 @@ const cors = require("cors");
 app.use(cors());
 require("dotenv").config();
 app.use(express.json());
-const router = express.Router()
 const signupRouter = require("./routes/signup")
 const loginRouter = require("./routes/login")
+const commentRouter = require("./routes/comment")
 const mongoose = require("mongoose");
+
 mongoose.connect(process.env.MONGODB_URI)
 
 
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use(signupRouter)
 app.use(loginRouter)
+app.use(commentRouter)
 
 
 
