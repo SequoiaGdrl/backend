@@ -11,6 +11,9 @@ const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGODB_URI)
 
+//LOCAL
+//mongoose.connect("mongodb+srv://sequoia:Fqvbs228sh@cluster0.n61oq6y.mongodb.net/gamePad")
+
 
 
 

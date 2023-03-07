@@ -4,6 +4,7 @@ const Comment = mongoose.model("Comment", {
     title: String,
     text: String,
     date: String,
+    gameId: String,
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",

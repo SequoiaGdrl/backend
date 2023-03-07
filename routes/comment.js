@@ -9,18 +9,22 @@ router.post("/review", async (req, res) => {
         const {
             title,
             text,
-            date
+            date,
+            owner,
+            gameId
         } = req.body
 
         const newComment = await new Comment({
             title: title,
             text: text,
-            date: date
+            date: date,
+            gameId: gameId,
+            owner: owner
         });
 
         await newComment.save();
 
-        res.json(newComment)
+        res.json(newComment);
 
 
     } catch (error) {
@@ -37,8 +41,13 @@ router.post("/review", async (req, res) => {
 
 router.get("/reviews", async (req, res) => {
     try {
+        const {
+            id
+        } = req.query
 
-        const comment = await Comment.find().populate("owner");
+        const comment = await Comment.find({
+            gameId: id
+        }).populate("owner");
 
 
         res.json(comment)
