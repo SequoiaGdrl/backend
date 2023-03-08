@@ -24,7 +24,8 @@ router.post("/review", async (req, res) => {
 
 
         const findComment = await Comment.find({
-            owner: owner,
+            owner: owner
+        }, {
             gameId: gameId
         });
 
