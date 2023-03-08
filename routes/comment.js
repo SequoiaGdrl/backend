@@ -28,7 +28,7 @@ router.post("/review", async (req, res) => {
             gameId: gameId
         });
 
-        if (findComment) {
+        if (findComment.length === 1) {
             res.status(400).json({
                 message: "error: a comment already exists for this game."
             })
