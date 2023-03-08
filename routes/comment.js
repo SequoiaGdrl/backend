@@ -22,6 +22,21 @@ router.post("/review", async (req, res) => {
             owner: owner
         });
 
+
+        const findComment = await Comment.find({
+            owner: owner,
+            gameId: gameId
+        });
+
+        if (findComment) {
+            res.status(400).json({
+                message: "error: a comment already exists for this game."
+            })
+        };
+
+
+
+
         await newComment.save();
 
         res.json(newComment);
@@ -42,11 +57,11 @@ router.post("/review", async (req, res) => {
 router.get("/reviews", async (req, res) => {
     try {
         const {
-            id
+            gameId
         } = req.query
 
         const comment = await Comment.find({
-            gameId: id
+            gameId: gameId
         }).populate("owner");
 
 
