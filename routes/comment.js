@@ -9,7 +9,6 @@ router.post("/review", async (req, res) => {
         const {
             title,
             text,
-            date,
             owner,
             gameId
         } = req.body
@@ -17,7 +16,7 @@ router.post("/review", async (req, res) => {
         const newComment = await new Comment({
             title: title,
             text: text,
-            date: date,
+            date: new Date(),
             gameId: gameId,
             owner: owner
         });
