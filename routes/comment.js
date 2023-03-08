@@ -16,7 +16,7 @@ router.post("/review", async (req, res) => {
         const newComment = await new Comment({
             title: title,
             text: text,
-            date: new Date(),
+            date: new Date().toLocaleDateString("fr"),
             gameId: gameId,
             owner: owner
         });
